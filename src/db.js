@@ -11,3 +11,10 @@ export async function listUsers(limit) {
   const result = await pool.query("SELECT * FROM users ORDER BY id LIMIT $1", [limit]);
   return result.rows;
 }
+
+export async function searchUsers(name) {
+  const result = await pool.query(
+    `SELECT * FROM users WHERE name LIKE '%${name}%' ORDER BY id`
+  );
+  return result.rows;
+}
