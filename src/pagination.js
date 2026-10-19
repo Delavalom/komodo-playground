@@ -5,3 +5,11 @@ export function paginate(items, pageSize) {
   }
   return pages;
 }
+
+export function pageCount(totalItems, pageSize) {
+  return Math.floor(totalItems / pageSize);
+}
+
+export function lastItemIndexOnPage(page, pageSize) {
+  return page * pageSize + pageSize;
+}
